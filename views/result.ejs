@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <header>
+
+        <div class="containerlogo">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Calculadora de Porcentajes">
+            </div>
+            <nav class="menu">
+                <button class="menu-button">Menú</button>
+                <div class="dropdown-content">
+                    <a href="/">Inicio</a>
+                    <a href="#">Otras Calculadoras</a>
+                    <a href="/contacto">Contacto</a>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <h1>Resultado</h1>
+        </div>
+    </header>
+    <br>
+    <div class="container">
+        <section class="calculation">
+    <p><strong>El <%= x %>% de <%= y %> es igual a <%= result.toFixed(2) %></strong></p>
+</section></div>
+      <!-- Formulario para nuevo cálculo -->
+      
+      <br>
+      <div class="container">
+      <h2>Calcula otro porcentaje</h2>
+       <br>
+       
+      <div class="calculator">
+        <form action="/calculate" method="post">
+            <div class="input-group">
+                <label for="x">Porcentaje (X%)</label>
+                <input type="number" id="x" name="x" placeholder="X%" required>
+            </div>
+            Sobre 👇<br><br>
+            <div class="input-group">
+                <label for="y">Valor (Y)</label>
+                <input type="number" id="y" name="y" placeholder="Y" required>
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        </div>
+        </div>
+        <br><br>
+        <footer>
+            <div class="container">
+                <a href="/">Volver a la calculadora</a>
+            </div>
+        </footer>    <script src="/js/menu.js"></script>
+</body>
+</html>

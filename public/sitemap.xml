@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                            <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+                                
+                                    <url>
+                                        <loc>http://localhost:3000/50-por-ciento-sobre-10</loc>
+                                    </url>
+                                    <url>
+                                        <loc>http://localhost:3000/10-por-ciento-sobre-5</loc>
+                                    </url>
+                                    <url>
+                                        <loc>http://localhost:3000/1-por-ciento-sobre-10</loc>
+                                    </url>
+                                    <url>
+                                        <loc>http://localhost:3000/50-por-ciento-sobre-11</loc>
+                                    </url>
+                                    <url>
+                                        <loc>http://localhost:3000/20-por-ciento-sobre-1</loc>
+                                    </url>
+                                    <url>
+                                        <loc>http://localhost:3000/7-por-ciento-sobre-5</loc>
+                                    </url>
+                            </urlset>

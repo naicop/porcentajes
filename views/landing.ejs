@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= result.toFixed(2) %> es el <%= x %>% de <%= y %>. Calcula este porcentaje y muchos más aquí con nuestra calculadora de porcentajes online.">
+    
+    <meta property="og:title" content="¿Cuánto es el <%= x %>% de <%= y %>?">
+    <meta property="og:description" content="<%= result.toFixed(2) %> es el <%= x %>% de <%= y %>. Calcula este porcentaje y muchos más aquí con nuestra calculadora de porcentajes online.">
+    <meta property="og:image" content="<%= imagePath %>">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+    <title>¿Cuánto es el <%= x %>% de <%= y %>?</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Calculadora de Porcentajes",
+          "description": "Calculadora que estima cuánto es el <%= x %>% sobre <%= y %>.",
+          "url": "<%= fullUrl %>",
+          "mainEntity": {
+            "@type": "HowTo",
+            "name": "Cómo calcular porcentajes",
+            "description": "Esta página explica cómo calcular el <%= x %>% de <%= y %>.",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "Convertir porcentaje a decimal",
+                "text": "Divide el porcentaje entre 100 para obtener el decimal equivalente. Por ejemplo, para <%= x %>%, divide <%= x %> entre 100 = <%= x/100 %>",
+                 "position": 1
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Multiplicar por el valor",
+                "text": "Multiplica el decimal obtenido por el valor <%= y %>. Para este caso, el decimal es <%= x/100 %>, el resultado es <%= x/100 %> * <%= y %> = <%= x/100 * y %>.",
+                "position": 2
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Verificar el resultado",
+                "text": "Revisa el resultado de la multiplicación para asegurarte de que es correcto. Si es necesario, ajusta el cálculo y repite los pasos anteriores.",
+                 "position": 3
+              },
+              {
+                "@type": "HowToStep",
+                "name": "Guardar o registrar el resultado",
+                "text": "Guarda o registra el resultado obtenido según sea necesario, ya sea en una nota, documento o aplicación.",
+                "position": 4
+              }
+            ],
+            "estimatedCost": {
+              "@type": "MonetaryAmount",
+              "currency": "USD",
+              "value": "0"
+            },
+            "timeRequired": "PT3M",
+            "totalTime": "PT3M",
+            "tool": [
+              {
+                "@type": "HowToTool",
+                "name": "Calculadora"
+              }
+            ],
+            "provider": {
+              "@type": "Organization",
+              "name": "Tu Empresa"
+            }
+          }
+        }
+        </script>
+        
+</head>
+<body>
+    <header>
+
+        <div class="containerlogo">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Calculadora de Porcentajes">
+            </div>
+            <nav class="menu">
+                <button class="menu-button">Menú</button>
+                <div class="dropdown-content">
+                    <a href="/">Inicio</a>
+                    <a href="#">Otras Calculadoras</a>
+                    <a href="/contacto">Contacto</a>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <h1>¿Cuánto es el <%= x %>% de <%= y %>?</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section class="calculation">
+                <p class="results"><strong>Resultado:</strong> el <%= x %>% de <%= y %> es <%= result.toFixed(2) %></p>
+                <p class="explanation"><strong>Explicación:</strong> <%- explanation %></p>
+            </section>
+            
+            <div class="container"><h2>Calcula otro porcentaje</h2>
+             <br>
+            <div class="calculator">
+              <form action="/calculate" method="post">
+                  <div class="input-group">
+                      <label for="x">Porcentaje (X%)</label>
+                      <input type="number" id="x" name="x" placeholder="X%" required>
+                  </div>
+                  Sobre 👇<br><br>
+                  <div class="input-group">
+                      <label for="y">Valor (Y)</label>
+                      <input type="number" id="y" name="y" placeholder="Y" required>
+                  </div>
+                  <button type="submit">Calcular</button>
+              </form>
+              </div>
+            </div>
+            <br>
+            <section class="examples">
+                <h2>Ejemplos Adicionales</h2>
+                <ul>
+                    <% examples.forEach(function(example) { %>
+                        <li><%= example.x %>% de <%= example.y %> es <%= example.result.toFixed(2) %></li>
+                    <% }); %>
+                </ul>
+            </section>
+            
+            <section class="chart">
+                <h2>Visualización del Resultado</h2>
+                <canvas id="myChart"></canvas>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <a href="/">Volver a la calculadora</a>
+        </div>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: '<%= chartType %>',
+            data: {
+                labels: ['Resultado', 'Resto'],
+                datasets: [{
+                    data: [<%= result %>, <%= y - result %>],
+                    backgroundColor: ['#FF6384', '#36A2EB']
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Distribución de <%= x %>% sobre <%= y %>'
+                }
+            }
+        });
+    </script>
+
+<script src="/js/menu.js"></script>
+</body>
+</html>
