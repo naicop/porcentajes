@@ -1,0 +1,28 @@
+{
+  "name": "porcentaje",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "canvas": "^2.11.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naicop/porcentajes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/naicop/porcentajes/issues"
+  },
+  "homepage": "https://github.com/naicop/porcentajes#readme",
+  "description": ""
+}
